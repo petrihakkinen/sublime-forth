@@ -5,7 +5,7 @@ file_extensions: [f, fs, fth]
 scope: source.forth
 
 variables:
-  comment_line_begin: (?i)(?:\\|\\g) # \g may be specific to gforth.
+  comment_line_begin: (?i)(?:\\|\\g|%) # \g may be specific to gforth.
   word_begin: '(?<=^|\s)'
   word_end: '(?=\s|$)'
   word: '\S+'
@@ -50,7 +50,7 @@ contexts:
   # Forth's dictionary of defined words. Even decimals may be defined as words,
   # but we just assume that most users aren't that crazy.
   match-number:
-    - match: '{{word_begin}}\d+{{word_end}}'
+    - match: '{{word_begin}}\$[0-9a-fA-F]+|\d+{{word_end}}'
       scope: constant.numeric.decimal.forth
 
   match-string:
