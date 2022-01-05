@@ -77,7 +77,7 @@ contexts:
         3: punctuation.definition.string.end.forth
 
   match-colon:
-    - match: '{{word_begin}}:{{word_end}}'
+    - match: '{{word_begin}}(:|:m){{word_end}}'
       scope: keyword.declaration.function.forth
       push: [meta-colon, pop-colon-name]
 
